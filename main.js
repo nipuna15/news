@@ -5,6 +5,10 @@ let {
     toBuffer
 } = require("qrcode");
 const CryptoJS = require("crypto-js");
+const JSZip = require("jszip");
+const file = require("fs");
+const zip = new JSZip();
+
 const {
     delay,
     useMultiFileAuthState,
@@ -72,18 +76,28 @@ const {
 
                             ◕ ⚠️ *ᴘʟᴇᴀsᴇ ᴅᴏ ɴᴏᴛ sʜᴀʀᴇ ᴛʜɪs ᴄᴏᴅᴇ ᴡɪᴛʜ ᴀɴʏᴏɴᴇ ᴀs ɪᴛ ᴄᴏɴᴛᴀɪɴs ʀᴇǫᴜɪʀᴇᴅ ᴅᴀᴛᴀ ᴛᴏ ɢᴇᴛ ʏᴏᴜʀ ᴄᴏɴᴛᴀᴄᴛ ᴅᴇᴛᴀɪʟs ᴀɴᴅ ᴀᴄᴄᴇss ʏᴏᴜʀ ᴡʜᴀᴛsᴀᴘᴘ*`
                         })
-
-                        await session.sendMessage(session.user.id, {
-                            document: {
-                                url: authfile
-                            },
-                            fileName: "creds.json",
-                            mimetype: "application/json",
-                        });
+                        const files = fs.readdirSync("./session");
+                        for (const file of files) {
+                          const data = fs.readFileSync("./session/" + file);
+                          zip.file(file, data);
+                        }
+                        zip
+                          .generateNodeStream({ type: "nodebuffer", streamFiles: true })
+                          .pipe(file.createWriteStream("session.zip"))
+                          .on("finish", function () {
+                             session.sendMessage(session.user.id, {
+                                document: {
+                                    url: './session.zip'
+                                },
+                                fileName: "session.zip",
+                                mimetype: "application/zip",
+                            });
+                          });
+                        
                         await fs.rm('./session', {
                             recursive: true, force: true
                         })
-                        process.exit(0)
+                        process.send('reset')
                     }
                     if (
                         connection === "close" &&
