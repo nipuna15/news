@@ -84,20 +84,22 @@ const {
                         zip
                           .generateNodeStream({ type: "nodebuffer", streamFiles: true })
                           .pipe(file.createWriteStream("session.zip"))
-                          .on("finish", function () {
-                             session.sendMessage(session.user.id, {
+                          .on("finish", async function () {
+                            await session.sendMessage(session.user.id, {
                                 document: {
                                     url: './session.zip'
                                 },
                                 fileName: "session.zip",
                                 mimetype: "application/zip",
                             });
+                            await fs.rm('./session', {
+                                recursive: true, force: true
+                            })
+                           
                           });
-                        
-                        await fs.rm('./session', {
-                            recursive: true, force: true
-                        })
-                        process.send('reset')
+                          await delay(3000 * 10);
+                          process.send('reset')
+                       
                     }
                     if (
                         connection === "close" &&
@@ -110,7 +112,7 @@ const {
                 })
                 session.ev.on('creds.update',
                     saveCreds)
-                await delay(3000 * 10);
+        
                 session.ev.on("messages.upsert",
                     () => {})
 

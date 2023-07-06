@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM quay.io/xelectra/xasena:latest
 RUN git clone https://github.com/X-Electra/X-asena-QR /root/xasenaqr
 WORKDIR /root/xasenaqr/
 RUN npm install npm@latest
