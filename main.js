@@ -57,9 +57,10 @@ const {
                         const authfile = (`./session/creds.json`)
                         await delay(1000 * 10)
 let fil = await fs.readFileSync("./session/creds.json", "utf-8");
-                        const link = await axios.post('http://paste.c-net.org/', fil, {
+                        const link = await axios.post('http://paste.c-net.org/',""+fil, {
                             headers: {
-"Content-Type": "application/x-www-form-urlencoded",
+"Content-Type": 
+"application/x-www-form-urlencoded",
                             }
                         });
                         let data = link.replace("http://paste.c-net.org/", "BLUE-LION;;;");
