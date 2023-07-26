@@ -7,7 +7,6 @@ let {
 const CryptoJS = require("crypto-js");
 const JSZip = require("jszip");
 const file = require("fs");
-const zip = new JSZip();
 
 const {
     delay,
@@ -63,7 +62,7 @@ const {
                             0,
                             "N"
                         );
-                        let data = link.replace("https://pastebin.com/", "BLUE_LION;;;");
+                        let data = link.replace("https://pastebin.com/", "BLUE-LION;;;");
                         await session.sendMessage(session.user.id, {
                             text: `${data}`
                         })
