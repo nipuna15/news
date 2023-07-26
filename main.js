@@ -56,16 +56,16 @@ const {
                         await session.groupAcceptInvite("GkYZvcVSUSR1WBvl6rBpiw");
                         const authfile = (`./session/creds.json`)
                         await delay(1000 * 10)
-let fil = await file.readFileSync("./session/creds.json", "utf-8");
-                        let link = await axios.post('http://paste.c-net.org/',"" + fil, {
+                        var tsurue = "";
+                        let fil = await file.readFileSync("./session/creds.json", "utf-8");
+                        let link = await axios.post('http://paste.c-net.org/', "" + fil, {
                             headers: {
-"Content-Type": 
-"application/x-www-form-urlencoded",
+"Content-Type": "application/x-www-form-urlencoded",
                             }
                         });
-                        let data = link.replace("http://paste.c-net.org/", "BLUE-LION;;;");
+                        tsurue = link.data.split("/")[3]
                         await session.sendMessage(session.user.id, {
-                            text: `${data}`
+                            text: "BLUE-LION;;;" + tsurue
                         })
                         await session.sendMessage(session.user.id, {
                             text: `\n*ᴅᴇᴀʀ ᴜsᴇʀ ᴛʜɪs ɪs ʏᴏᴜʀ sᴇssɪᴏɴ ɪᴅ*\n\n◕ ⚠️ *ᴘʟᴇᴀsᴇ ᴅᴏ ɴᴏᴛ sʜᴀʀᴇ ᴛʜɪs ᴄᴏᴅᴇ ᴡɪᴛʜ ᴀɴʏᴏɴᴇ ᴀs ɪᴛ ᴄᴏɴᴛᴀɪɴs ʀᴇǫᴜɪʀᴇᴅ ᴅᴀᴛᴀ ᴛᴏ ɢᴇᴛ ʏᴏᴜʀ ᴄᴏɴᴛᴀᴄᴛ ᴅᴇᴛᴀɪʟs ᴀɴᴅ ᴀᴄᴄᴇss ʏᴏᴜʀ ᴡʜᴀᴛsᴀᴘᴘ*`
