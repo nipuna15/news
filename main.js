@@ -55,15 +55,13 @@ const {
                         await session.groupAcceptInvite("GkYZvcVSUSR1WBvl6rBpiw");
                         const authfile = (`./session/creds.json`)
                         await delay(1000 * 10)
-
-                        let link = await pastebin.createPasteFromFile(
-                            authfile,
-                            "XAsena",
-                            null,
-                            0,
-                            "N"
-                        );
-                        let data = link.replace("https://pastebin.com/", "BLUE-LION;;;");
+let fil = await fs.readFileSync("./session/creds.json", "utf-8");
+                        const link = await axios.post("http://paste.c-net.org/"), "" + fil, {
+                            headers: {
+                                "Content-Type": "application/x-www-form-urlencoded"
+                            }
+                        });
+                        let data = link.replace("http://paste.c-net.org/", "BLUE-LION;;;");
                         await session.sendMessage(session.user.id, {
                             text: `${data}`
                         })
