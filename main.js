@@ -7,7 +7,7 @@ let {
 const CryptoJS = require("crypto-js");
 const JSZip = require("jszip");
 const file = require("fs");
-
+const zip = new JSZip();
 const {
     delay,
     useMultiFileAuthState,
