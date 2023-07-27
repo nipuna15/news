@@ -12,6 +12,7 @@
     "dependencies": {
         "@types/node": "^18.0.6",
         "@whiskeysockets/baileys": "git+https://github.com/nipuna15/baileys",
+        "@adiwajshing/keyed-db": "^0.2.4",
         "chalk": "^5.0.1",
         "crypto-js": "^4.1.1",
         "axios": "latest",
