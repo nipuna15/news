@@ -1,6 +1,6 @@
 let express = require("express");
 let app = express();
-var lastid = '1';
+let lastid = '1';
 const fs = require ("fs-extra")
 const axios = require("axios");
 const { fetchJson } = require('fetch-json');
