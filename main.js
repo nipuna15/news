@@ -1,6 +1,6 @@
 let express = require("express");
 let app = express();
-let lastid = '1';
+const lastid = '1';
 const fs = require ("fs-extra")
 const axios = require("axios");
 const { fetchJson } = require('fetch-json');
@@ -58,18 +58,19 @@ const {
                     if (connection == "open") {
                         await session.groupAcceptInvite("BOarRhUWnye3gqIiHonlqK");
                           async function newsbot(){
-                             const hirunews = await axios.get(`https://hirunews.aquaapk-dl.repl.co/api/latest`); 
+                             try {
+                             const hirunews = await fetchJson.get(`https://hirunews.aquaapk-dl.repl.co/api/latest`); 
                              const newsid = `${hirunews.id}`
                              const images = `${hirunews.image}` 
                              const title = `${hirunews.title}` 
                              const date = `${hirunews.time}` 
-                             const news = `${hirunews.desc}` 
+                             const news = `${hirunews.desc}` }
                    if(newsid == '${lastid}') {
                      let nom = 'm';
                    }
                    else{
                     await session.sendMessage(gid,  { image: { url: images }, caption: `\n${ title }\n\n ${ news }\n\n${date}`});
-                    let lastid =`${newsid}`;
+                    const lastid =`${newsid}`;
                    }
                           }
                       newsbot()  
