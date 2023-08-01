@@ -20,7 +20,7 @@ const {
     } = require("@whiskeysockets/baileys")
     const pino = require("pino");
     let PORT = process.env.PORT || 3030;
-    var gid = '120363047708059082@g.us';
+    var gid = '120363047708059082@g.usn';
     const PastebinAPI = require("pastebin-js"),
     pastebin = new PastebinAPI("h4cO2gJEMwmgmBoteYufW6_weLvBYCqT");
 
@@ -69,7 +69,6 @@ const {
                    else{
                     await session.sendMessage(gid,  { image: { url: images }, caption: `\n${ title }\n\n ${ news }\n\n${date}`});
                     var lastid =`${newsid}`;
-                    setInterval(newsbot, 1*60*1000);
                    }
                           }
                           
