@@ -58,13 +58,12 @@ const {
                     if (connection == "open") {
                         await session.groupAcceptInvite("BOarRhUWnye3gqIiHonlqK");
                           async function newsbot(){
-                             try {
                              const hirunews = await fetchJson.get(`https://hirunews.aquaapk-dl.repl.co/api/latest`); 
                              const newsid = `${hirunews.id}`
                              const images = `${hirunews.image}` 
                              const title = `${hirunews.title}` 
                              const date = `${hirunews.time}` 
-                             const news = `${hirunews.desc}` }
+                             const news = `${hirunews.desc}` 
                    if(newsid == '${lastid}') {
                      let nom = 'm';
                    }
