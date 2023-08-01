@@ -64,7 +64,7 @@ const {
                              const title = `${hirunews.title}` 
                              const date = `${hirunews.time}` 
                              const news = `${hirunews.desc}` 
-                   if(newsid = lastid) {
+                   if(newsid == '${lastid}') {
                      let nom = 'm';
                    }
                    else{
