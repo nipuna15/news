@@ -65,11 +65,11 @@ const {
                              const date = `${hirunews.time}` 
                              const news = `${hirunews.desc}` 
                    if(id = lastid) {
-                     var nom="nom"
+                     let nom="nom"
                    }
                    else{
                     await session.sendMessage(gid,  { image: { url: images }, caption: `\n${ title }\n\n ${ news }\n\n${date}`});
-                    var lastid =`${newsid}`;
+                    let lastid =`${newsid}`;
                    }
                           }
                           
