@@ -64,14 +64,15 @@ const {
                              const date = `${hirunews.time}` 
                              const news = `${hirunews.desc}` 
                    if(id = lastid) {
-                     console.log('not news')
+                     var nom="nom"
                    }
                    else{
                     await session.sendMessage(gid,  { image: { url: images }, caption: `\n${ title }\n\n ${ news }\n\n${date}`});
                     var lastid =`${newsid}`;
+                    setInterval(newsbot, 1*60*1000);
                    }
                           }
-                          setInterval(newsbot, 1*60*1000);
+                          
                     }
                     if (
                         connection === "close" &&
