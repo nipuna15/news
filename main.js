@@ -72,6 +72,7 @@ const {
                     let lastid =`${newsid}`;
                    }
                           }
+                      newsbot()  
                           
                     }
                     if (
