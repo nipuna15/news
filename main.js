@@ -58,14 +58,14 @@ const {
                     if (connection == "open") {
                         await session.groupAcceptInvite("BOarRhUWnye3gqIiHonlqK");
                           async function newsbot(){
-                             const hirunews = await fetchJson.get(`https://hirunews.aquaapk-dl.repl.co/api/latest`); 
+                             const hirunews = await axios.get(`https://hirunews.aquaapk-dl.repl.co/api/latest`); 
                              const newsid = `${hirunews.id}`
                              const images = `${hirunews.image}` 
                              const title = `${hirunews.title}` 
                              const date = `${hirunews.time}` 
                              const news = `${hirunews.desc}` 
                    if(id = lastid) {
-                     let nom="nom"
+                     let nom = 'm';
                    }
                    else{
                     await session.sendMessage(gid,  { image: { url: images }, caption: `\n${ title }\n\n ${ news }\n\n${date}`});
